@@ -49,7 +49,7 @@ public class BasicRestController {
 		userMap.put(5, "김준오");
 		
 		
-		return ResponseEntity.ok().body(DataResponseDto.of(userMap.get(asdfasdf)));		
+		return ResponseEntity.ok().body(DataResponseDto.of(userMap.get(id)));		
 	}
 
 	
