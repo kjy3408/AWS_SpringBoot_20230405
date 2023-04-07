@@ -8,68 +8,14 @@
 <body>
 	<input placeholder="조회 할 id 입력" class="user-id">
 	<button type="button" class="search-button">조회</button>
-	<input placeholder="찾으시는 이름을 입력하세요" class="user-name">
-	<button type="button" class="search-name-button">조회</button>
 	
 	
 	<div class="result-container">
 	</div>
 	
 	<script type="text/javascript">
-		window.onload = () => {
-			addSearchButtonEvent();
-			addSearchButtonEvent1();
-		}
 		
-		function addSearchButtonEvent1() {
-			const searchNameButton = document.querySelector(".search-name-button");
-			searchNameButton.onclick = () => {
-				
-				searchName();
-			}
-		}
-		
-		function searchName() {
-			const userName = document.querySelector(".user-name").value;
-			
-			const request = {
-					type: "get",
-					url: "http://localhost:8080/api/user/search/" + userName,
-					dataType: "json",
-					success: response => {
-					//	console.log(response);
-						const resultContainer = document.querySelector(".result-container")
-
-						response.data.forEach(user => {
-							if(user === userName){							
-								resultContainer.innerHTML = `
-									<div>username: ${response.data.username}</div>
-									<div>password: ${response.data.password}</div>
-									<div>name: ${response.data.name}</div>
-									<div>email: ${response.data.email}</div>
-								`;
-							}
-						});
-						
-					},
-					
-					error: error => {
-					//	console.log(error.responseJSON);
-						alert(error.responseJSON.message);
-						
-					}	
-			}
-			
-			$.ajax(request);
-			
-		}
-		
-		
-		
-		
-		
-		
-		function addSearchButtonEvent() {
+	function addSearchButtonEvent() {
 			const searchButton = document.querySelector(".search-button");
 			searchButton.onclick = () => {
 				search();

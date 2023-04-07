@@ -80,21 +80,5 @@ public class UserRestController {
 		return ResponseEntity.ok().body(DataResponseDto.of(UserStore.userMap.values()));
 	}
 	
-	
-	@SuppressWarnings("unlikely-arg-type")
-	@GetMapping("/api/user/search/{name}")
-	public ResponseEntity<? extends ResponseDto> getUserName(@PathVariable String name) {
 		
-		if(!UserStore.userMap.values().equals(name)) {
-			System.out.println(UserStore.userMap.values());
-			try {
-				throw new RuntimeException("존재하지 않는 이름입니다.");
-			} catch (Exception e) {
-				return ResponseEntity.badRequest().body(ErrorResponseDto.of(HttpStatus.BAD_REQUEST, e));	
-			}
-		}
-	
-		return ResponseEntity.ok().body(DataResponseDto.of(UserStore.userMap.values()));
-	}
-	
 }
