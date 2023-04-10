@@ -1,7 +1,11 @@
 package com.web.study.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
-import com.web.study.domain.entitiy.Lecture;
+
+import com.web.study.domain.entity.Lecture;
+import com.web.study.domain.entity.Lecturer;
 import com.web.study.dto.request.lecture.LectureReqDto;
 import com.web.study.repository.LectureRepository;
 
@@ -11,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LectureServiceImpl implements LectureService{
 
+	// final => 상수: 초기화가 무조건 일어나야 함.
 	private final LectureRepository lectureRepository;
 	
 	@Override
@@ -21,4 +26,4 @@ public class LectureServiceImpl implements LectureService{
 		lectureRepository.registe(lecture);
 	}
 
-}
+	}

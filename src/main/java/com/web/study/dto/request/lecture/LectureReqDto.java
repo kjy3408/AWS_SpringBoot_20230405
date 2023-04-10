@@ -1,6 +1,6 @@
 package com.web.study.dto.request.lecture;
 
-import com.web.study.domain.entitiy.Lecture;
+import com.web.study.domain.entity.Lecture;
 
 import lombok.Setter;
 import lombok.ToString;

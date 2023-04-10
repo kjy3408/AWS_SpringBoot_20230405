@@ -5,7 +5,7 @@
   
 <mapper namespace="com.web.study.repository.LectureRepository">
 
-	<insert id="registe" parameterType="com.web.study.domain.entity.Lecture">
+	<insert id="registe" parameterType="com.web.study.domain.entitiy.Lecture">
 		INSERT INTO lecture_mst
 		VALUES (0, #{lecture_name}, #{lecture_price}, #{lecturer_id})
 	</insert>

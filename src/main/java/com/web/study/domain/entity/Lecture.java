@@ -1,4 +1,4 @@
-package com.web.study.domain.entitiy;
+package com.web.study.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
