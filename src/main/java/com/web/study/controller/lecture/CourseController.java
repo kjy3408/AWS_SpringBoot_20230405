@@ -2,6 +2,7 @@ package com.web.study.controller.lecture;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,10 +29,16 @@ public class CourseController {
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());
 	}
 	
-	@GetMapping("/course/all")
+	@GetMapping("/courses")
 	public ResponseEntity<? extends ResponseDto> getCourseAll() {
 		
-		return ResponseEntity.ok().body(DataResponseDto.of(null));
+		return ResponseEntity.ok().body(DataResponseDto.of(courseService.getCourseAll()));
+	}
+	
+	@GetMapping("/search/courses")
+	public ResponseEntity<? extends ResponseDto> searchCourse(int type, String searchValue) {
+		
+		return ResponseEntity.ok().body(DataResponseDto.of(courseService.searchCourse(type, searchValue)));
 	}
 	
 }

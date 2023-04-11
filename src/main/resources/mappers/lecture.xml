@@ -4,10 +4,55 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.web.study.repository.LectureRepository">
+	
+	<resultMap type="com.web.study.domain.entity.Lecture" id="lecture">
+		<result column="ltm_id" property="ltm_id"/>
+		<result column="ltm_name" property="ltm_name"/>
+		<result column="ltm_price" property="ltm_price"/>
+		<result column="itm_id" property="itm_id"/>
+		<collection property="instructor" resultMap="instructor"></collection>
+	</resultMap>
+
+	<resultMap type="com.web.study.domain.entity.Instructor" id="instructor">
+		<result column="itm_id" property="itm_id"/>
+		<result column="itm_name" property="itm_name"/>
+		<result column="itm_birth" property="itm_birth"/>
+	</resultMap>
 
 	<insert id="registe" parameterType="com.web.study.domain.entity.Lecture">
 		INSERT INTO lecture_mst
-		VALUES (0, #{lecture_name}, #{lecture_price}, #{lecturer_id})
+		VALUES (0, #{ltm_name}, #{ltm_price}, #{ltm_id})
 	</insert>
 
+	<select id="findLectureAll" resultType="Lecture" >
+		SELECT
+			ltm_id,
+			ltm_name,
+			ltm_price,
+			itm_id
+		FROM
+			lecture_mst
+	</select>
+	
+	<select id="searchLecture" parameterType="hashMap" resultMap="lecture">
+		SELECT
+			lm.ltm_id,
+			lm.ltm_name,
+			lm.ltm_price,
+			im.itm_name
+		FROM
+			lecture_mst lm
+			LEFT OUTER JOIN instructor_mst im ON(im.itm_id = lm.itm_id)
+		WHERE
+		1 = 1
+		<if test="type == 1">
+			and lm.ltm_name like concat('%', #{searchValue}, '%')
+		</if>
+		<if test="type == 2">
+			and im.itm_name like concat('%', #{searchValue}, '%')
+		</if>
+		ORDER BY
+			lm.ltm_price desc 
+	</select>
+	
 </mapper>
