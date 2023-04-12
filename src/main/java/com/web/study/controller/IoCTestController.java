@@ -11,11 +11,11 @@ import com.web.study.IocAndDi.IocTest2;
 @RestController
 public class IoCTestController {
 
-	@Autowired
-	private IocTest iocTest;
-	@Autowired
-	private IocTest2 iocTest2;
-	
+//	@Autowired
+//	private IocTest iocTest;
+//	@Autowired
+//	private IocTest2 iocTest2;
+//	
 	
 //	public IoCTestController(IocTest iocTest, IocTest2 iocTest2) {
 //		this.iocTest = iocTest;
@@ -25,11 +25,11 @@ public class IoCTestController {
 	
 //	@Autowired
 //	private IocTest iocTest;
-	
-	@GetMapping("/ioc/test")
-	public Object test() {
-		iocTest.run();
-		iocTest2.run();
-		return null;
-	}
+//	
+//	@GetMapping("/ioc/test")
+//	public Object test() {
+//		iocTest.run();
+//		iocTest2.run();
+//		return null;
+//	}
 }

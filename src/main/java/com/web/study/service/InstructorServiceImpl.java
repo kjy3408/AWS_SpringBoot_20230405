@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.web.study.dto.request.instructor.InstructorReqDto;
+import com.web.study.dto.request.InstructorReqDto;
 import com.web.study.dto.response.InstructorRespDto;
 import com.web.study.repository.InstructorRepository;
 
@@ -39,5 +39,11 @@ public class InstructorServiceImpl implements InstructorService{
 	public InstructorRespDto findInstructorById(int id) {
 		
 		return InstructorRepository.findInstructorById(id).toDto();
+	}
+
+	@Override
+	public void registeInstructor(com.web.study.service.InstructorReqDto InstructorReqDto) {
+		// TODO Auto-generated method stub
+		
 	}
 }
