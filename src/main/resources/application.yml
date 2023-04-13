@@ -9,3 +9,6 @@ mybatis:
   type-aliases-package: com.web.study.domain.entity
   mapper-locations:
     - /mappers/*.xml 
+    
+jwt:
+  secretKey: f4C3cAsHFoEPK0QBCkY2jt9v4a0wnenGf4C3cAsHFoEPK0QBCkY2jt9v4a0wnenG

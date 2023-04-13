@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.web.study.dto.DataResponseDto;
 import com.web.study.dto.ResponseDto;
-import com.web.study.dto.request.InstructorReqDto;
+import com.web.study.dto.request.instructor.InstructorReqDto;
 import com.web.study.service.InstructorService;
 
 import lombok.RequiredArgsConstructor;
